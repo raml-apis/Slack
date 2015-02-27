@@ -1,0 +1,16 @@
+get?: 
+  queryParameters: 
+    channel: 
+      description: <<resourceName>> to fetch history for.
+      required: true
+      example: C1234567890
+    ts: 
+      description: Timestamp of the most recently seen message.
+      required: true
+      example: 1234567890.123456
+  responses: 
+    200: 
+      body: 
+        application/json: 
+          schema: ok
+          example: !include ../examples/ok-example.json

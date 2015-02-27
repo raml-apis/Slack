@@ -1,0 +1,96 @@
+{
+  "required" : true ,
+  "$schema" : "http://json-schema.org/draft-03/schema" ,
+  "type" : "object" ,
+  "properties" : {
+    "ok" : {
+      "type" : "boolean" ,
+      "required" : false
+    } ,
+    "items" : {
+      "type" : "array" ,
+      "required" : false ,
+      "items" : [
+        {
+          "type" : "object" ,
+          "properties" : {
+            "type" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "channel" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "message" : {
+              "type" : "string" ,
+              "required" : false
+            }
+          }
+        } , {
+          "type" : "object" ,
+          "properties" : {
+            "type" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "file" : {
+              "type" : "string" ,
+              "required" : false
+            }
+          }
+        } , {
+          "type" : "object" ,
+          "properties" : {
+            "type" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "file" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "comment" : {
+              "type" : "string" ,
+              "required" : false
+            }
+          }
+        } , {
+          "type" : "object" ,
+          "properties" : {
+            "type" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "channel" : {
+              "type" : "string" ,
+              "required" : false
+            }
+          }
+        }
+      ]
+    } ,
+    "paging" : {
+      "type" : "object" ,
+      "required" : false ,
+      "properties" : {
+        "count" : {
+          "type" : "number" ,
+          "required" : false
+        } ,
+        "total" : {
+          "type" : "number" ,
+          "required" : false
+        } ,
+        "page" : {
+          "type" : "number" ,
+          "required" : false
+        } ,
+        "pages" : {
+          "type" : "number" ,
+          "required" : false
+        }
+      }
+    }
+  }
+}

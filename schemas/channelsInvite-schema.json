@@ -1,0 +1,97 @@
+{
+  "required" : true ,
+  "$schema" : "http://json-schema.org/draft-03/schema" ,
+  "type" : "object" ,
+  "properties" : {
+    "ok" : {
+      "type" : "boolean" ,
+      "required" : false
+    } ,
+    "channel" : {
+      "type" : "object" ,
+      "required" : false ,
+      "properties" : {
+        "id" : {
+          "type" : "string" ,
+          "required" : false
+        } ,
+        "name" : {
+          "type" : "string" ,
+          "required" : false
+        } ,
+        "created" : {
+          "type" : "string" ,
+          "required" : false
+        } ,
+        "creator" : {
+          "type" : "string" ,
+          "required" : false
+        } ,
+        "is_archived" : {
+          "type" : "boolean" ,
+          "required" : false
+        } ,
+        "is_member" : {
+          "type" : "boolean" ,
+          "required" : false
+        } ,
+        "is_general" : {
+          "type" : "boolean" ,
+          "required" : false
+        } ,
+        "last_read" : {
+          "type" : "string" ,
+          "required" : false
+        } ,
+        "latest" : {
+          "type" : "string" ,
+          "required" : false
+        } ,
+        "unread_count" : {
+          "type" : "number" ,
+          "required" : false
+        } ,
+        "members" : {
+          "type" : "string" ,
+          "required" : false
+        } ,
+        "topic" : {
+          "type" : "object" ,
+          "required" : false ,
+          "properties" : {
+            "value" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "creator" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "last_set" : {
+              "type" : "string" ,
+              "required" : false
+            }
+          }
+        } ,
+        "purpose" : {
+          "type" : "object" ,
+          "required" : false ,
+          "properties" : {
+            "value" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "creator" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "last_set" : {
+              "type" : "string" ,
+              "required" : false
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,1 @@
+Slack brings all your communication together in one place. It's real-time messaging, archiving and search for modern teams.

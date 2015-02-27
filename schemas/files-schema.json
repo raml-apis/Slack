@@ -1,0 +1,37 @@
+{
+  "required" : true ,
+  "$schema" : "http://json-schema.org/draft-03/schema" ,
+  "type" : "object" ,
+  "properties" : {
+    "ok" : {
+      "type" : "boolean" ,
+      "required" : false
+    } ,
+    "files" : {
+      "type" : "string" ,
+      "required" : false
+    } ,
+    "paging" : {
+      "type" : "object" ,
+      "required" : false ,
+      "properties" : {
+        "count" : {
+          "type" : "number" ,
+          "required" : false
+        } ,
+        "total" : {
+          "type" : "number" ,
+          "required" : false
+        } ,
+        "page" : {
+          "type" : "number" ,
+          "required" : false
+        } ,
+        "pages" : {
+          "type" : "number" ,
+          "required" : false
+        }
+      }
+    }
+  }
+}

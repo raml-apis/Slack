@@ -1,0 +1,14 @@
+{
+  "ok" : true ,
+  "query" : "test" ,
+  "files" : {
+    "total" : 829 ,
+    "paging" : {
+      "count" : 20 ,
+      "total" : 829 ,
+      "page" : 1 ,
+      "pages" : 42
+    } ,
+    "matches" : ""
+  }
+}

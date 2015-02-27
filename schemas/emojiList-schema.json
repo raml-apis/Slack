@@ -1,0 +1,29 @@
+{
+  "required" : true ,
+  "$schema" : "http://json-schema.org/draft-03/schema" ,
+  "type" : "object" ,
+  "properties" : {
+    "ok" : {
+      "type" : "boolean" ,
+      "required" : false
+    } ,
+    "emoji" : {
+      "type" : "object" ,
+      "required" : false ,
+      "properties" : {
+        "bowtie" : {
+          "type" : "string" ,
+          "required" : false
+        } ,
+        "squirrel" : {
+          "type" : "string" ,
+          "required" : false
+        } ,
+        "shipit" : {
+          "type" : "string" ,
+          "required" : false
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "required" : true ,
+  "$schema" : "http://json-schema.org/draft-03/schema" ,
+  "type" : "object" ,
+  "properties" : {
+    "ok" : {
+      "type" : "boolean" ,
+      "required" : false
+    } ,
+    "members" : {
+      "type" : "array" ,
+      "required" : false ,
+      "items" : [
+        {
+          "type" : "object" ,
+          "properties" : {
+            "id" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "name" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "deleted" : {
+              "type" : "boolean" ,
+              "required" : false
+            } ,
+            "color" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "profile" : {
+              "type" : "object" ,
+              "required" : false ,
+              "properties" : {
+                "first_name" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "last_name" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "real_name" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "email" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "skype" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "phone" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "image_24" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "image_32" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "image_48" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "image_72" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "image_192" : {
+                  "type" : "string" ,
+                  "required" : false
+                }
+              }
+            } ,
+            "is_admin" : {
+              "type" : "boolean" ,
+              "required" : false
+            } ,
+            "is_owner" : {
+              "type" : "boolean" ,
+              "required" : false
+            } ,
+            "has_files" : {
+              "type" : "boolean" ,
+              "required" : false
+            }
+          }
+        }
+      ]
+    }
+  }
+}

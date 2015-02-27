@@ -1,0 +1,38 @@
+{
+  "required" : true ,
+  "$schema" : "http://json-schema.org/draft-03/schema" ,
+  "type" : "object" ,
+  "properties" : {
+    "ok" : {
+      "type" : "boolean" ,
+      "required" : false
+    } ,
+    "ims" : {
+      "type" : "array" ,
+      "required" : false ,
+      "items" : [
+        {
+          "type" : "object" ,
+          "properties" : {
+            "id" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "user" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "created" : {
+              "type" : "number" ,
+              "required" : false
+            } ,
+            "is_user_deleted" : {
+              "type" : "boolean" ,
+              "required" : false
+            }
+          }
+        }
+      ]
+    }
+  }
+}

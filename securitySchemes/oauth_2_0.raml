@@ -1,0 +1,15 @@
+description: ""
+type: OAuth 2.0
+describedBy: 
+  queryParameters: 
+    token: 
+      description: |
+        Used to send a valid OAuth 2 access token. 
+settings: 
+  authorizationUri: https://slack.com/oauth/authorize
+  accessTokenUri: https://slack.com/api/oauth.access
+  authorizationGrants: [ code ]
+  scopes: 
+    - identify
+    - read
+    - post

@@ -1,0 +1,51 @@
+{
+  "required" : true ,
+  "$schema" : "http://json-schema.org/draft-03/schema" ,
+  "type" : "object" ,
+  "properties" : {
+    "ok" : {
+      "type" : "boolean" ,
+      "required" : false
+    } ,
+    "query" : {
+      "type" : "string" ,
+      "required" : false
+    } ,
+    "messages" : {
+      "type" : "object" ,
+      "required" : false ,
+      "properties" : {
+        "total" : {
+          "type" : "number" ,
+          "required" : false
+        } ,
+        "paging" : {
+          "type" : "object" ,
+          "required" : false ,
+          "properties" : {
+            "count" : {
+              "type" : "number" ,
+              "required" : false
+            } ,
+            "total" : {
+              "type" : "number" ,
+              "required" : false
+            } ,
+            "page" : {
+              "type" : "number" ,
+              "required" : false
+            } ,
+            "pages" : {
+              "type" : "number" ,
+              "required" : false
+            }
+          }
+        } ,
+        "matches" : {
+          "type" : "string" ,
+          "required" : false
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,86 @@
+{
+  "required" : true ,
+  "$schema" : "http://json-schema.org/draft-03/schema" ,
+  "type" : "object" ,
+  "properties" : {
+    "ok" : {
+      "type" : "boolean" ,
+      "required" : false
+    } ,
+    "latest" : {
+      "type" : "string" ,
+      "required" : false
+    } ,
+    "messages" : {
+      "type" : "array" ,
+      "required" : false ,
+      "items" : [
+        {
+          "type" : "object" ,
+          "properties" : {
+            "type" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "ts" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "user" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "text" : {
+              "type" : "string" ,
+              "required" : false
+            }
+          }
+        } , {
+          "type" : "object" ,
+          "properties" : {
+            "type" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "ts" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "user" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "text" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "is_starred" : {
+              "type" : "boolean" ,
+              "required" : false
+            }
+          }
+        } , {
+          "type" : "object" ,
+          "properties" : {
+            "type" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "ts" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "wibblr" : {
+              "type" : "boolean" ,
+              "required" : false
+            }
+          }
+        }
+      ]
+    } ,
+    "has_more" : {
+      "type" : "boolean" ,
+      "required" : false
+    }
+  }
+}

@@ -1,0 +1,29 @@
+get?: 
+  queryParameters: 
+    channel: 
+      description: <<resourceName>> to fetch history for.
+      required: true
+      example: C1234567890
+    latest: 
+      description: Timestamp of the oldest recent seen message.
+      default: now
+      example: 1234567890.123456
+    oldest: 
+      description: Timestamp of the latest previously seen message.
+      default: 0
+      example: 1234567890.123456
+    count: 
+      description: Number of messages to return, between 1 and 1000.
+      type: number
+      default: 100
+      example: 100
+    has_more: 
+      type: boolean
+    is_limited: 
+      type: boolean
+  responses: 
+    200: 
+      body: 
+        application/json: 
+          schema: channelsHistory
+          example: !include ../examples/channelsHistory-example.json

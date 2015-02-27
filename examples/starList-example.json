@@ -1,0 +1,26 @@
+{
+  "ok" : true ,
+  "items" : [
+    {
+      "type" : "message" ,
+      "channel" : "C2147483705" ,
+      "message" : ""
+    } , {
+      "type" : "file" ,
+      "file" : ""
+    } , {
+      "type" : "file_comment" ,
+      "file" : "" ,
+      "comment" : ""
+    } , {
+      "type" : "channel" ,
+      "channel" : "C2147483705"
+    }
+  ] ,
+  "paging" : {
+    "count" : 100 ,
+    "total" : 4 ,
+    "page" : 1 ,
+    "pages" : 1
+  }
+}
