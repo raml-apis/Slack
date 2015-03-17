@@ -1,14 +1,88 @@
 {
-  "ok" : true ,
-  "query" : "test" ,
-  "messages" : {
-    "total" : 829 ,
-    "paging" : {
-      "count" : 20 ,
-      "total" : 829 ,
-      "page" : 1 ,
-      "pages" : 42
-    } ,
-    "matches" : ""
+  "ok": true,
+  "query": "file",
+  "messages": {
+    "total": 2,
+    "pagination": {
+      "total_count": 2,
+      "page": 1,
+      "per_page": 20,
+      "page_count": 1,
+      "first": 1,
+      "last": 2
+    },
+    "paging": {
+      "count": 20,
+      "total": 2,
+      "page": 1,
+      "pages": 1
+    },
+    "matches": [{
+      "type": "im",
+      "user": "USLACKBOT",
+      "username": "slackbot",
+      "ts": "1426588313.000012",
+      "text": "Hi ramltest. I can help you with many different parts of Slack. For example, things like <slack-action:\/\/BSLACKBOT\/help\/files|files>, <slack-action:\/\/BSLACKBOT\/help\/channels|channels>, <slack-action:\/\/BSLACKBOT\/help\/search|search>, <slack-action:\/\/BSLACKBOT\/help\/starring|starring>, <slack-action:\/\/BSLACKBOT\/help\/mobile|mobile>, or <slack-action:\/\/BSLACKBOT\/help\/keyboard|keyboard shortcuts>. You can click on those terms or type \"\/help\" followed by any term you want help with (e.g., \"\/help files\" or \"\/help search\"). Or, if you just want to tell us what you think about Slack, you can type \"\/feedback\" followed by whatever you'd like to say to the team at Slack.",
+      "channel": {
+        "id": "D037UTPHR",
+        "name": "USLACKBOT"
+      },
+      "permalink": "https:\/\/ramltest.slack.com\/archives\/D037UTPHR\/p1426588313000012",
+      "previous": {
+        "user": "USLACKBOT",
+        "username": "slackbot",
+        "ts": "1426588302.000011",
+        "type": "message",
+        "text": "Sorry, I don't know how to help you with 'me'. Please type `\/help` for details of how I can help you with Slack."
+      },
+      "previous_2": {
+        "user": "U037UTPHP",
+        "username": "ramltest",
+        "ts": "1426588301.000010",
+        "type": "message",
+        "text": "help me"
+      },
+      "next": {
+        "user": "U037UTPHP",
+        "username": "ramltest",
+        "ts": "1426588350.000013",
+        "type": "message",
+        "text": "ee"
+      },
+      "next_2": {
+        "user": "USLACKBOT",
+        "username": "slackbot",
+        "ts": "1426588351.000014",
+        "type": "message",
+        "text": "Hmm. I didn\u2019t get that, but we can keep going."
+      }
+    },
+    {
+      "type": "message",
+      "user": "U037UTPHP",
+      "username": "ramltest",
+      "ts": "1426588044.000002",
+      "text": "file",
+      "channel": {
+        "id": "C037UTPHV",
+        "name": "general"
+      },
+      "permalink": "https:\/\/ramltest.slack.com\/archives\/general\/p1426588044000002",
+      "previous": {
+        "user": "",
+        "username": "",
+        "ts": "1426586417.000000",
+        "type": "message",
+        "text": "<@U037UTPHP|ramltest> set the channel topic: This is the new notebook topic!"
+      },
+      "previous_2": {
+        "user": "",
+        "username": "",
+        "ts": "1419170998.000007",
+        "type": "message",
+        "text": "<@U037UTPHP|ramltest> set the channel topic: This is the new notebook topic!"
+      }
+    }
+    ]
   }
 }
