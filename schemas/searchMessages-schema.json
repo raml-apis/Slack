@@ -19,6 +19,36 @@
           "type" : "number" ,
           "required" : false
         } ,
+        "pagination" : {
+          "type" : "object" ,
+          "required" : false ,
+          "properties" : {
+            "total_count" : {
+              "type" : "number" ,
+              "required" : false
+            } ,
+            "page" : {
+              "type" : "number" ,
+              "required" : false
+            } ,
+            "per_page" : {
+              "type" : "number" ,
+              "required" : false
+            } ,
+            "page_count" : {
+              "type" : "number" ,
+              "required" : false
+            } ,
+            "first" : {
+              "type" : "number" ,
+              "required" : false
+            } ,
+            "last" : {
+              "type" : "number" ,
+              "required" : false
+            }
+          }
+        } ,
         "paging" : {
           "type" : "object" ,
           "required" : false ,
@@ -42,8 +72,251 @@
           }
         } ,
         "matches" : {
-          "type" : "string" ,
-          "required" : false
+          "type" : "array" ,
+          "required" : false ,
+          "items" : [
+            {
+              "type" : "object" ,
+              "properties" : {
+                "type" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "user" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "username" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "ts" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "text" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "channel" : {
+                  "type" : "object" ,
+                  "required" : false ,
+                  "properties" : {
+                    "id" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "name" : {
+                      "type" : "string" ,
+                      "required" : false
+                    }
+                  }
+                } ,
+                "permalink" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "previous" : {
+                  "type" : "object" ,
+                  "required" : false ,
+                  "properties" : {
+                    "user" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "username" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "ts" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "type" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "text" : {
+                      "type" : "string" ,
+                      "required" : false
+                    }
+                  }
+                } ,
+                "previous_2" : {
+                  "type" : "object" ,
+                  "required" : false ,
+                  "properties" : {
+                    "user" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "username" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "ts" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "type" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "text" : {
+                      "type" : "string" ,
+                      "required" : false
+                    }
+                  }
+                } ,
+                "next" : {
+                  "type" : "object" ,
+                  "required" : false ,
+                  "properties" : {
+                    "user" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "username" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "ts" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "type" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "text" : {
+                      "type" : "string" ,
+                      "required" : false
+                    }
+                  }
+                } ,
+                "next_2" : {
+                  "type" : "object" ,
+                  "required" : false ,
+                  "properties" : {
+                    "user" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "username" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "ts" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "type" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "text" : {
+                      "type" : "string" ,
+                      "required" : false
+                    }
+                  }
+                }
+              }
+            } , {
+              "type" : "object" ,
+              "properties" : {
+                "type" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "user" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "username" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "ts" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "text" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "channel" : {
+                  "type" : "object" ,
+                  "required" : false ,
+                  "properties" : {
+                    "id" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "name" : {
+                      "type" : "string" ,
+                      "required" : false
+                    }
+                  }
+                } ,
+                "permalink" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "previous" : {
+                  "type" : "object" ,
+                  "required" : false ,
+                  "properties" : {
+                    "user" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "username" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "ts" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "type" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "text" : {
+                      "type" : "string" ,
+                      "required" : false
+                    }
+                  }
+                } ,
+                "previous_2" : {
+                  "type" : "object" ,
+                  "required" : false ,
+                  "properties" : {
+                    "user" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "username" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "ts" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "type" : {
+                      "type" : "string" ,
+                      "required" : false
+                    } ,
+                    "text" : {
+                      "type" : "string" ,
+                      "required" : false
+                    }
+                  }
+                }
+              }
+            }
+          ]
         }
       }
     }

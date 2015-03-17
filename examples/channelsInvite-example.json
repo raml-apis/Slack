@@ -1,26 +1,37 @@
 {
   "ok" : true ,
   "channel" : {
-    "id" : "C024BE91L" ,
-    "name" : "fun" ,
-    "created" : "1360782804" ,
-    "creator" : "U024BE7LH" ,
+    "id" : "C02H9LSS5" ,
+    "name" : "new-notebook-channel" ,
+    "is_channel" : true ,
+    "created" : 1409150594 ,
+    "creator" : "U02H09TML" ,
     "is_archived" : false ,
-    "is_member" : true ,
     "is_general" : false ,
-    "last_read" : "1401383885.000061" ,
-    "latest" : "" ,
+    "is_member" : true ,
+    "last_read" : "1426578839.000000" ,
+    "latest" : {
+      "user" : "U03B8D45L" ,
+      "type" : "message" ,
+      "subtype" : "channel_join" ,
+      "text" : "<@U03B8D45L|kostya.sviridov> has joined the channel" ,
+      "ts" : "1426578839.000000"
+    } ,
     "unread_count" : 0 ,
-    "members" : "" ,
+    "unread_count_display" : 0 ,
+    "members" : [
+      "U02H09TML" ,
+      "U03B8D45L"
+    ] ,
     "topic" : {
-      "value" : "Fun times" ,
-      "creator" : "U024BE7LV" ,
-      "last_set" : "1369677212"
+      "value" : "" ,
+      "creator" : "" ,
+      "last_set" : 0
     } ,
     "purpose" : {
-      "value" : "This channel is for fun" ,
-      "creator" : "U024BE7LH" ,
-      "last_set" : "1360782804"
+      "value" : "" ,
+      "creator" : "" ,
+      "last_set" : 0
     }
   }
 }
