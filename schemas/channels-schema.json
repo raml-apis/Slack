@@ -60,6 +60,13 @@
                 }
               }
             } ,
+            "members" : {
+              "type" : "array" ,
+              "required" : false,
+              "items" : {
+                "type" : "string"
+              }
+            } ,
             "purpose" : {
               "type" : "object" ,
               "required" : false ,

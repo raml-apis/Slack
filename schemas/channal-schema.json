@@ -52,8 +52,11 @@
           "required" : false
         } ,
         "members" : {
-          "type" : "string" ,
-          "required" : false
+          "type" : "array" ,
+          "required" : false,
+          "items" : {
+            "type" : "string"
+          }
         } ,
         "topic" : {
           "type" : "object" ,
