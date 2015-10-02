@@ -1,17 +1,17 @@
-get?: 
+get?:
   description: Sets the purpose for a channel.
-  queryParameters: 
-    channel: 
+  queryParameters:
+    channel:
       description: <<resourceName>> to fetch history for.
       required: true
       example: C1234567890
-    purpose: 
+    purpose:
       description: The new purpose
       required: true
       example: My Purpose
-  responses: 
-    200: 
-      body: 
-        application/json: 
-          schema: purpose
+  responses:
+    200:
+      body:
+        application/json:
+          schema: types.Purpose
           example: !include ../examples/purpose-example.json

@@ -36,7 +36,7 @@ securedBy: [ oauth_2_0 ]
       200:
         body:
           application/json:
-            schema: notExistingType
+            schema: channalsInfo
             example: !include examples/channalsInfo-example.json
 /channels.invite:
   get:
@@ -54,7 +54,7 @@ securedBy: [ oauth_2_0 ]
       200:
         body:
           application/json:
-            schema: channelsInvite
+            schema: types.ChannelsInvite
             example: !include examples/channelsInvite-example.json
 /channels.join:
   get:
@@ -67,7 +67,7 @@ securedBy: [ oauth_2_0 ]
       200:
         body:
           application/json:
-            schema: channelsInvite
+            schema: types.ChannelsInvite
             example: !include examples/channal-example.json
 /channels.leave:
   get:
@@ -81,7 +81,7 @@ securedBy: [ oauth_2_0 ]
       200:
         body:
           application/json:
-            schema: ok
+            schema: types.Ok
             example: !include examples/ok-example.json
 /channels.list:
   get:
@@ -95,7 +95,7 @@ securedBy: [ oauth_2_0 ]
       200:
         body:
           application/json:
-            schema: channels
+            schema: types.Channels
             example: !include examples/channels-example.json
 /channels.mark:
   type: { markType: { resourceName: Channel }}
@@ -139,7 +139,7 @@ securedBy: [ oauth_2_0 ]
       200:
         body:
           application/json:
-            schema: chatOk
+            schema: types.ChatOk
             example: !include examples/chatOk-example.json
 /chat.postMessage:
   get:
@@ -177,7 +177,7 @@ securedBy: [ oauth_2_0 ]
       200:
         body:
           application/json:
-            schema: chatOk
+            schema: types.ChatOk
             example: !include examples/chatOk-example.json
 /chat.update:
   get:
@@ -208,7 +208,7 @@ securedBy: [ oauth_2_0 ]
       200:
         body:
           application/json:
-            schema: emojiList
+            schema: types.EmojiList
             example: !include examples/emojiList-example.json
 /files.info:
   get:
@@ -232,7 +232,7 @@ securedBy: [ oauth_2_0 ]
       200:
         body:
           application/json:
-            schema: fileObj
+            schema: types.FileObj
             example: !include examples/fileObj-example.json
 /files.list:
   get:
@@ -296,7 +296,7 @@ securedBy: [ oauth_2_0 ]
       200:
         body:
           application/json:
-            schema: fileObj
+            schema: types.FileObj
             example: !include examples/fileObj-example.json
 /groups.history:
   type: { historyType: { resourceName: Group }}
@@ -353,7 +353,7 @@ securedBy: [ oauth_2_0 ]
       200:
         body:
           application/json:
-            schema: ims
+            schema: types.Ims
             example: !include examples/ims-example.json
 /im.mark:
   type: { markType: { resourceName: "Direct message channel" }}
@@ -372,7 +372,7 @@ securedBy: [ oauth_2_0 ]
       200:
         body:
           application/json:
-            schema: ok
+            schema: types.Ok
             example: !include examples/ok-example.json
 /search.all:
   get:
@@ -506,7 +506,7 @@ securedBy: [ oauth_2_0 ]
       200:
         body:
           application/json:
-            schema: starList
+            schema: types.StarList
             example: !include examples/starList-example.json
 /users.list:
   get:
