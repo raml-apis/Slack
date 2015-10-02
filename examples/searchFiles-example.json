@@ -1,60 +1,14 @@
 {
-	"ok": true,
-	"query": "File",
-	"files": {
-		"total": 1,
-		"pagination": {
-			"total_count": 1,
-			"page": 1,
-			"per_page": 20,
-			"page_count": 1,
-			"first": 1,
-			"last": 1
-		},
-		"paging": {
-			"count": 20,
-			"total": 1,
-			"page": 1,
-			"pages": 1
-		},
-		"matches": [{
-			"id": "F0426TAD5",
-			"created": 1426587938,
-			"timestamp": 1426587938,
-			"name": "File.txt",
-			"title": "File.txt",
-			"mimetype": "text\/plain",
-			"filetype": "text",
-			"pretty_type": "Plain Text",
-			"user": "U037UTPHP",
-			"editable": true,
-			"size": 1513,
-			"mode": "snippet",
-			"is_external": false,
-			"external_type": "",
-			"is_public": false,
-			"public_url_shared": false,
-			"url": "https:\/\/slack-files.com\/files-pub\/T037UTPHM-F0426TAD5-1fb4ecaf2c\/file.txt",
-			"url_download": "https:\/\/slack-files.com\/files-pub\/T037UTPHM-F0426TAD5-1fb4ecaf2c\/download\/file.txt",
-			"url_private": "https:\/\/files.slack.com\/files-pri\/T037UTPHM-F0426TAD5\/file.txt",
-			"url_private_download": "https:\/\/files.slack.com\/files-pri\/T037UTPHM-F0426TAD5\/download\/file.txt",
-			"permalink": "https:\/\/ramltest.slack.com\/files\/ramltest\/F0426TAD5\/file.txt",
-			"permalink_public": "https:\/\/slack-files.com\/T037UTPHM-F0426TAD5-1fb4ecaf2c",
-			"edit_link": "https:\/\/ramltest.slack.com\/files\/ramltest\/F0426TAD5\/file.txt\/edit",
-			"preview": "D:\\workspaces\\RAML_LUNA\\sch-validator\\apis\\Box\\schemas\\File.json\ncom.github.fge.jsonschema.core.report.ListProcessingReport: failure\n--- BEGIN MESSAGES ---\nwarning: the following keywords are unknown and will be ignored: [paths]\n    level: \"warning\"\n    schema: {\"loadingURI\":\"#\",\"pointer\":\"\/properties\/path_collection\"}\n    domain: \"syntax\"\n    ignored: [\"paths\"]\nwarning: the following keywords are unknown and will be ignored: [paths]\n    level: \"warning\"","preview_highlight":"<divclass=\"sssh-code\"><div class=\"sssh-line\"><pre>D:\\workspaces\\RAML_LUNA\\sch-validator\\apis\\Box\\schemas\\File.json\r<\/pre><\/div>\n<div class=\"sssh-line\"><pre>com.github.fge.jsonschema.core.report.ListProcessingReport: failure<\/pre><\/div>\n<div class=\"sssh-line\"><pre>--- BEGIN MESSAGES ---<\/pre><\/div>\n<div class=\"sssh-line\"><pre>warning: the following keywords are unknown and will be ignored: [paths]<\/pre><\/div>\n<div class=\"sssh-line\"><pre>    level: &quot;warning&quot;<\/pre><\/div>\n<div class=\"sssh-line\"><pre>    schema: {&quot;loadingURI&quot;:&quot;#&quot;,&quot;pointer&quot;:&quot;\/properties\/path_collection&quot;}<\/pre><\/div>\n<div class=\"sssh-line\"><pre>    domain: &quot;syntax&quot;<\/pre><\/div>\n<div class=\"sssh-line\"><pre>    ignored: [&quot;paths&quot;]<\/pre><\/div>\n<div class=\"sssh-line\"><pre>warning: the following keywords are unknown and will be ignored: [paths]<\/pre><\/div>\n<div class=\"sssh-line\"><pre>    level: &quot;warning&quot;<\/pre><\/div>\n<\/div>",
-			"lines": 39,
-			"lines_more": 29,
-			"channels": [],
-			"groups": [],
-			"ims": ["D037UTPHR"],
-			"comments_count": 1,
-			"initial_comment": {
-				"id": "Fc0429AKDS",
-				"created": 1426587938,
-				"timestamp": 1426587938,
-				"user": "U037UTPHP",
-				"comment": "File.txt"
-			}
-		}]
-	}
+  "ok" : true ,
+  "query" : "test" ,
+  "files" : {
+    "total" : 829 ,
+    "paging" : {
+      "count" : 20 ,
+      "total" : 829 ,
+      "page" : 1 ,
+      "pages" : 42
+    } ,
+    "matches" : ""
+  }
 }

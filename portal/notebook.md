@@ -2,6 +2,6 @@ The API notebooks are all executable! Hit "enter" in any code cell to execute it
 
 #Considerations
 
-- In order to run this notebook you must register your own team at Slack.com.
+- ​In order to run this notebook you must register your own team at Slack.com.
 - Inside your team you must create a private group.
 - You must register your Slack application at [https://api.slack.com/applications](https://api.slack.com/applications). At some point of the excecution, you will be prompted for clientId and clientSecret of your application.

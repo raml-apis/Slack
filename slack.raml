@@ -1,269 +1,552 @@
-#%RAML 0.8
+#%RAML 1.0
 title: Slack
 baseUri: https://slack.com/api
 securitySchemes:
   - oauth_2_0: !include securitySchemes/oauth_2_0.raml
+types:
+  Message:
+    type: object
+    properties:
+      type?: string
+      ts?: string
+      user?: string
+      text?: string
+      is_starred?: boolean
+      wibblr?: boolean
+    example:
+      type: "message"
+      ts: "1358546515.000007"
+      user: "U2147483896"
+      text: "Hi!"
+      is_starred: false
+      wibblr: true
+  ChannelsHistory:
+    type: object
+    properties:
+      ok?: boolean
+      latest?: string
+      messages?: Message[]
+      has_more: boolean
+    example:
+      ok: true
+      latest: "latest"
+      messages:
+        - type: "type"
+          ts: "ts"
+          user: "Mark"
+          text: "Hi!"
+          is_starred: false
+          wibblr: true
+      has_more: false
+  ChannelItem:
+    type: object
+    properties:
+      id?: string
+      name?: string
+      created?: integer
+      creator?: string
+      is_archived?: boolean
+      is_member?: boolean
+      num_members?: number
+      topic?:
+        type: object
+        properties:
+          value?: string
+          creator?: string
+          last_set?: integer
+      members?: string[]
+      purpose?:
+        type: object
+        properties:
+          value?: string
+          creator?: string
+          last_set?: string
+    example:
+      id: "C024BE91L"
+      name: "fun"
+      created: "1360782804"
+      creator: "U024BE7LH"
+      is_archived: false
+      is_member: false
+      num_members: 6
+      topic:
+        value: "Fun times"
+        creator: "U024BE7LV"
+        last_set: "1369677212"
+      purpose:
+        value: "This channel is for fun"
+        creator: "U024BE7LH"
+        last_set: "1360782804"
+  Channels:
+    type: object
+    properties:
+      ok?: boolean
+      channels?: ChannelItem[]
+    example:
+      - id: "C024BE91L"
+        name: "fun"
+        created: "1360782804"
+        creator: "U024BE7LH"
+        is_archived: false
+        is_member: false
+        num_members: 6
+        topic:
+          value: "Fun times"
+          creator: "U024BE7LV"
+          last_set: "1369677212"
+        purpose:
+          value: "This channel is for fun"
+          creator: "U024BE7LH"
+          last_set: "1360782804"
+  Channel:
+    type: object
+    properties:
+      id?: string
+      name?: string
+      is_channel?: boolean
+      created?: integer
+      creator?: string
+      is_archived?: boolean
+      is_general?: boolean
+      is_member?: boolean
+      last_read?: string
+      latest:
+        type: object
+        properties:
+          user?: string
+          type?: string
+          subtype?: string
+          text?: string
+          ts?: string
+      unread_count?: number
+      unread_count_display?: number
+      members?: string[]
+      topic?:
+        type: object
+        properties:
+          value?: string
+          creator?: string
+          last_set?: integer
+      purpose?:
+        type: object
+        properties:
+          value?: string
+          creator?: string
+          last_set?: string
+    example:
+      id: "C024BE91L"
+      name: "fun"
+      created: "1360782804"
+      creator: "U024BE7LH"
+      is_archived: false
+      is_channel: true
+      is_member: false
+      is_archived: true
+      is_general: false
+      last_read: "1401383885.000061"
+      topic:
+        value: "Fun times"
+        creator: "U024BE7LV"
+        last_set: "1369677212"
+      purpose:
+        value: "This channel is for fun"
+        creator: "U024BE7LH"
+        last_set: "1360782804"
+  ChannelsInvite:
+    type: object
+    properties:
+      ok?: boolean
+      channel: Channel
+    example:
+      ok: true
+      channel:
+        id: "C024BE91L"
+        name: "fun"
+        created: "1360782804"
+        creator: "U024BE7LH"
+        is_archived: false
+        is_channel: true
+        is_member: false
+        is_archived: true
+        is_general: false
+        last_read: "1401383885.000061"
+        topic:
+          value: "Fun times"
+          creator: "U024BE7LV"
+          last_set: "1369677212"
+        purpose:
+          value: "This channel is for fun"
+          creator: "U024BE7LH"
+          last_set: "1360782804"
+  Ok:
+    type: object
+    properties:
+      ok?: boolean
+    example:
+      ok: true
+  FileObj:
+    type: object
+    properties:
+      ok?: boolean
+      file?:
+        type: object
+    example:
+      ok: false
+  Purpose:
+    type: object
+    properties:
+      ok?: boolean
+      purpose?: string
+    example:
+      ok: true
+      purpose: "This is the new purpose!"
+  ChatOk:
+    type: object
+    properties:
+      ok?: boolean
+      ts?: string
+      channel?: string
+    example:
+      ok : true
+      ts : "1405895017.000506"
+      channel : "C024BE91L"
+  EmojiList:
+    type: object
+    properties:
+      ok?: boolean
+      emoji?:
+        type: object
+        properties:
+          bowtie?: string
+          squirrel?: string
+          shipit?: string
+    example:
+      ok: true
+      emoji:
+        bowtie : "https://my.slack.com/emoji/bowtie/46ec6f2bb0.png"
+        squirrel : "https://my.slack.com/emoji/squirrel/f35f40c0e0.png"
+        shipit : "alias:squirrel"
+  ImsItem:
+    type: object
+    properties:
+      id?: string
+      user?: string
+      created?: number
+      is_user_deleted?: boolean
+    example:
+      id: "C024BE91L"
+      user: "U024BE7LH"
+      created: "1360782804"
+      is_user_deleted: false
+  Ims:
+    type: object
+    properties:
+      ok?: boolean
+      ims: ImsItem[]
+    example:
+      ok: true
+      ims:
+        - id: "C024BE91L"
+          user: "U024BE7LH"
+          created: "1360782804"
+          is_user_deleted: false
+  StarFileItem:
+    type: object
+    properties:
+      type?: string
+      file?: string
+      comment?: string
+    example:
+      type: "file_comment"
+      file: ""
+      comment: ""
+  StarChannelItem:
+    type: object
+    properties:
+      type?: string
+      channel?: string
+      message?: string
+    example:
+      type: "message"
+      channel: "C2147483705"
+      message: ""
+  StarList:
+    type: object
+    properties:
+      ok?: boolean
+      items: (StarFileItem | StarChannelItem) []
+      paging?:
+        type: object
+        properties:
+          count?: number
+          total?: number
+          page?: number
+          pages?: number
+    example:
+      ok: true
+      items:
+        - type: "file_comment"
+          file: ""
+          comment: ""
+        - type: "message"
+          channel: "C2147483705"
+          message: ""
+      paging:
+        count: 242
+        tatal: 420
+        page: 4
+        pages: 429
 schemas:
-  - channelsHistory: !include schemas/channelsHistory-schema.json
   - channalsInfo: !include schemas/channalsInfo-schema.json
-  - channelsInvite: !include schemas/channelsInvite-schema.json
-  - ok: !include schemas/ok-schema.json
-  - channels: !include schemas/channels-schema.json
-  - purpose: !include schemas/purpose-schema.json
   - topic: !include schemas/topic-schema.json
-  - chatOk: !include schemas/chatOk-schema.json
   - chatUpdate: !include schemas/chatUpdate-schema.json
-  - emojiList: !include schemas/emojiList-schema.json
   - groups: !include schemas/groups-schema.json
-  - ims: !include schemas/ims-schema.json
   - searchAll: !include schemas/searchAll-schema.json
   - searchFiles: !include schemas/searchFiles-schema.json
   - searchMessages: !include schemas/searchMessages-schema.json
-  - starList: !include schemas/starList-schema.json
   - usersList: !include schemas/usersList-schema.json
-  - fileObj: !include schemas/fileObj-schema.json
   - files: !include schemas/files-schema.json
 resourceTypes:
   - setPurposeType: !include resourceTypes/setPurposeType.raml
   - historyType: !include resourceTypes/historyType.raml
   - markType: !include resourceTypes/markType.raml
 securedBy: [ oauth_2_0 ]
-/channels.history: 
+/channels.history:
   type: { historyType: { resourceName: Channel }}
-  get: 
+  get:
     description: Fetches history of messages and events from a channel.
-/channels.info: 
-  get: 
+/channels.info:
+  get:
     description: Gets information about a channel.
-    queryParameters: 
-      channel: 
+    queryParameters:
+      channel:
         description: Channel to fetch history for.
         required: true
         example: C1234567890
-    responses: 
-      200: 
-        body: 
-          application/json: 
-            schema: channalsInfo
+    responses:
+      200:
+        body:
+          application/json:
+            schema: notExistingType
             example: !include examples/channalsInfo-example.json
-/channels.invite: 
-  get: 
+/channels.invite:
+  get:
     description: Invites a user to a channel.
-    queryParameters: 
-      channel: 
+    queryParameters:
+      channel:
         description: Channel to fetch history for.
         required: true
         example: C1234567890
-      user: 
+      user:
         description: User to invite to channel.
         required: true
         example: U1234567890
-    responses: 
-      200: 
-        body: 
-          application/json: 
+    responses:
+      200:
+        body:
+          application/json:
             schema: channelsInvite
             example: !include examples/channelsInvite-example.json
-/channels.join: 
-  get: 
+/channels.join:
+  get:
     description: Joins a channel, creating it if needed.
-    queryParameters: 
-      name: 
+    queryParameters:
+      name:
         description: Name of channel to join
         required: true
-    responses: 
-      200: 
-        body: 
-          application/json: 
+    responses:
+      200:
+        body:
+          application/json:
             schema: channelsInvite
             example: !include examples/channal-example.json
-/channels.leave: 
-  get: 
+/channels.leave:
+  get:
     description: Leaves a channel.
-    queryParameters: 
-      channel: 
+    queryParameters:
+      channel:
         description: Channel to fetch history for.
         required: true
         example: C1234567890
-    responses: 
-      200: 
-        body: 
-          application/json: 
+    responses:
+      200:
+        body:
+          application/json:
             schema: ok
             example: !include examples/ok-example.json
-/channels.list: 
-  get: 
+/channels.list:
+  get:
     description: Lists all channels in a Slack team.
-    queryParameters: 
-      exclude_archived: 
+    queryParameters:
+      exclude_archived:
         description: "Don't return archived channels."
         default: 0
         example: 1
-    responses: 
-      200: 
-        body: 
-          application/json: 
+    responses:
+      200:
+        body:
+          application/json:
             schema: channels
             example: !include examples/channels-example.json
-/channels.mark: 
+/channels.mark:
   type: { markType: { resourceName: Channel }}
-  get: 
+  get:
     description: Sets the read cursor in a channel.
-/channels.setPurpose: 
+/channels.setPurpose:
   type: { setPurposeType: { resourceName: Channel }}
-  get: 
+  get:
     description: Sets the purpose for a channel.
-/channels.setTopic: 
-  get: 
+/channels.setTopic:
+  get:
     description: Sets the topic for a channel.
-    queryParameters: 
-      channel: 
+    queryParameters:
+      channel:
         description: Channel to fetch history for.
         required: true
         example: C1234567890
-      topic: 
+      topic:
         description: The new topic
         required: true
         example: My Topic
-    responses: 
-      200: 
-        body: 
-          application/json: 
+    responses:
+      200:
+        body:
+          application/json:
             schema: topic
             example: !include examples/topic-example.json
-/chat.delete: 
-  get: 
+/chat.delete:
+  get:
     description: Deletes a message.
-    queryParameters: 
-      channel: 
+    queryParameters:
+      channel:
         description: Channel to fetch history for.
         required: true
         example: C1234567890
-      ts: 
+      ts:
         description: Timestamp of the most recently seen message.
         required: true
         example: 1234567890.123456
-    responses: 
-      200: 
-        body: 
-          application/json: 
+    responses:
+      200:
+        body:
+          application/json:
             schema: chatOk
             example: !include examples/chatOk-example.json
-/chat.postMessage: 
-  get: 
+/chat.postMessage:
+  get:
     description: Sends a message to a channel.
-    queryParameters: 
-      channel: 
+    queryParameters:
+      channel:
         description: Channel to fetch history for.
         required: true
         example: C1234567890
-      text: 
+      text:
         description: Text of the message to send. See below for an explanation of formatting.
         required: true
         example: Hello world
-      username: 
+      username:
         description: Name of bot.
         example: My Bot
-      parse: 
+      parse:
         description: Change how messages are treated. See below.
         example: full
-      link_names: 
+      link_names:
         description: Find and link channel names and usernames.
         example: 1
-      unfurl_links: 
+      unfurl_links:
         description: Pass 1 to enable unfurling of primarily text-based content.
         example: 1
-      icon_url: 
+      icon_url:
         description: URL to an image to use as the icon for this message
         example: http://lorempixel.com/48/48
-      icon_emoji: 
+      icon_emoji:
         description: emoji to use as the icon for this message. Overrides icon_url.
         example: ":chart_with_upwards_trend:"
-      attachments: 
+      attachments:
         description: Structured message attachments.
-    responses: 
-      200: 
-        body: 
-          application/json: 
+    responses:
+      200:
+        body:
+          application/json:
             schema: chatOk
             example: !include examples/chatOk-example.json
-/chat.update: 
-  get: 
+/chat.update:
+  get:
     description: Updates a message.
-    queryParameters: 
-      channel: 
+    queryParameters:
+      channel:
         description: Channel to fetch history for.
         required: true
         example: C1234567890
-      text: 
+      text:
         description: Text of the message to send. See below for an explanation of formatting.
         required: true
         example: Hello world
-      ts: 
+      ts:
         description: Timestamp of the most recently seen message.
         required: true
         example: 1234567890.123456
-    responses: 
-      200: 
-        body: 
-          application/json: 
+    responses:
+      200:
+        body:
+          application/json:
             schema: chatUpdate
             example: !include examples/chatUpdate-example.json
-/emoji.list: 
-  get: 
+/emoji.list:
+  get:
     description: Lists custom emoji for a team.
-    responses: 
-      200: 
-        body: 
-          application/json: 
+    responses:
+      200:
+        body:
+          application/json:
             schema: emojiList
             example: !include examples/emojiList-example.json
-/files.info: 
-  get: 
+/files.info:
+  get:
     description: Gets information about a team file.
-    queryParameters: 
-      file: 
+    queryParameters:
+      file:
         description: File to fetch info for
         required: true
         example: F1234567890
-      count: 
+      count:
         description: Number of items to return per page.
         type: number
         default: 100
         example: 100
-      page: 
+      page:
         description: Page number of results to return.
         type: number
         default: 1
         example: 2
-    responses: 
-      200: 
-        body: 
-          application/json: 
+    responses:
+      200:
+        body:
+          application/json:
             schema: fileObj
             example: !include examples/fileObj-example.json
-/files.list: 
-  get: 
+/files.list:
+  get:
     description: Lists and filters team files.
-    queryParameters: 
-      file: 
+    queryParameters:
+      file:
         description: File to fetch info for
         required: true
         example: F1234567890
-      user: 
+      user:
         description: Filter files created by a single user.
         example: U1234567890
-      ts_from: 
+      ts_from:
         description: Filter files created after this timestamp (inclusive).
         default: 0
         example: 123456789
-      ts_to: 
+      ts_to:
         description: Filter files created before this timestamp (inclusive).
         default: now
         example: 123456789
-      types: 
+      types:
         description: You can pass multiple values in the types argument, like types=posts,snippets.The default value is all, which does not filter the list.
-        enum: 
+        enum:
           - pdfs
           - zips
           - posts
@@ -271,260 +554,260 @@ securedBy: [ oauth_2_0 ]
           - snippets
           - gdocs
           - all
-    responses: 
-      200: 
-        body: 
-          application/json: 
+    responses:
+      200:
+        body:
+          application/json:
             schema: files
             example: !include examples/files-example.json
-/files.upload: 
-  get: 
+/files.upload:
+  get:
     description: Uploads or creates a file.
-    queryParameters: 
-      file: 
+    queryParameters:
+      file:
         description: File contents via multipart/form-data.
-      content: 
+      content:
         description: File contents via a POST var.
-      filetype: 
+      filetype:
         description: Slack-internal file type identifier.
         example: php
-      filename: 
+      filename:
         description: Filename of file.
         example: foo.txt
-      title: 
+      title:
         description: Title of file.
         example: My File
-      initial_comment: 
+      initial_comment:
         description: Initial comment to add to file.
         example: Best!
-      channels: 
+      channels:
         description: Comma separated list of channels to share the file into.
         example: C1234567890
-    responses: 
-      200: 
-        body: 
-          application/json: 
+    responses:
+      200:
+        body:
+          application/json:
             schema: fileObj
             example: !include examples/fileObj-example.json
-/groups.history: 
+/groups.history:
   type: { historyType: { resourceName: Group }}
-  get: 
+  get:
     description: Fetches history of messages and events from a private group.
-/groups.list: 
-  get: 
+/groups.list:
+  get:
     description: Lists private groups that the calling user has access to.
-    queryParameters: 
-      exclude_archived: 
+    queryParameters:
+      exclude_archived:
         description: "Don't return archived channels."
         default: 0
         example: 1
-    responses: 
-      200: 
-        body: 
-          application/json: 
+    responses:
+      200:
+        body:
+          application/json:
             schema: groups
             example: !include examples/groups-example.json
-/groups.mark: 
+/groups.mark:
   type: { markType: { resourceName: Group }}
-  get: 
+  get:
     description: Sets the read cursor in a private group.
-/groups.setPurpose: 
+/groups.setPurpose:
   type: { setPurposeType: { resourceName: Group }}
-  get: 
+  get:
     description: Sets the purpose for a private group.
-/groups.setTopic: 
-  get: 
+/groups.setTopic:
+  get:
     description: Sets the topic for a private group.
-    queryParameters: 
-      channel: 
+    queryParameters:
+      channel:
         description: Channel to fetch history for.
         required: true
         example: C1234567890
-      topic: 
+      topic:
         description: The new topic
         required: true
         example: My Topic
-    responses: 
-      200: 
-        body: 
-          application/json: 
+    responses:
+      200:
+        body:
+          application/json:
             schema: topic
             example: !include examples/topic-example.json
-/im.history: 
+/im.history:
   type: { historyType: { resourceName: "Direct message channel" }}
-  get: 
+  get:
     description: Fetches history of messages and events from direct message channel.
-/im.list: 
-  get: 
+/im.list:
+  get:
     description: Lists direct message channels for the calling user.
-    responses: 
-      200: 
-        body: 
-          application/json: 
+    responses:
+      200:
+        body:
+          application/json:
             schema: ims
             example: !include examples/ims-example.json
-/im.mark: 
+/im.mark:
   type: { markType: { resourceName: "Direct message channel" }}
-  get: 
+  get:
     description: Sets the read cursor in a direct message channel.
-    queryParameters: 
-      channel: 
+    queryParameters:
+      channel:
         description: Channel to fetch history for.
         required: true
         example: C1234567890
-      ts: 
+      ts:
         description: Timestamp of the most recently seen message.
         required: true
         example: 1234567890.123456
-    responses: 
-      200: 
-        body: 
-          application/json: 
+    responses:
+      200:
+        body:
+          application/json:
             schema: ok
             example: !include examples/ok-example.json
-/search.all: 
-  get: 
+/search.all:
+  get:
     description: Searches for messages and files matching a query.
-    queryParameters: 
-      query: 
+    queryParameters:
+      query:
         description: Search query. May contains booleans, etc.
         required: true
         example: pickleface
-      sort: 
+      sort:
         description: Return matches sorted by either score or timestamp.
         enum: [ timestamp , score ]
         default: score
         example: timestamp
-      sort_dir: 
+      sort_dir:
         description: Change sort direction to ascending (asc) or descending (desc).
         enum: [ desc , asc ]
         default: desc
         example: asc
-      highlight: 
+      highlight:
         description: Pass a value of 1 to enable query highlight markers .
         example: 1
-      count: 
+      count:
         description: Number of items to return per page.
         type: number
         default: 100
         example: 100
-      page: 
+      page:
         description: Page number of results to return.
         type: number
         default: 1
         example: 2
-    responses: 
-      200: 
-        body: 
-          application/json: 
+    responses:
+      200:
+        body:
+          application/json:
             schema: searchAll
             example: !include examples/searchAll-example.json
-/search.files: 
-  get: 
+/search.files:
+  get:
     description: Searches for files matching a query.
-    queryParameters: 
-      query: 
+    queryParameters:
+      query:
         description: Search query. May contains booleans, etc.
         required: true
         example: pickleface
-      sort: 
+      sort:
         description: Return matches sorted by either score or timestamp.
         enum: [ timestamp , score ]
         default: score
         example: timestamp
-      sort_dir: 
+      sort_dir:
         description: Change sort direction to ascending (asc) or descending (desc).
         enum: [ desc , asc ]
         default: desc
         example: asc
-      highlight: 
+      highlight:
         description: Pass a value of 1 to enable query highlight markers .
         example: 1
-      count: 
+      count:
         description: Number of items to return per page.
         type: number
         default: 100
         example: 100
-      page: 
+      page:
         description: Page number of results to return.
         type: number
         default: 1
         example: 2
-    responses: 
-      200: 
-        body: 
-          application/json: 
+    responses:
+      200:
+        body:
+          application/json:
             schema: searchFiles
             example: !include examples/searchFiles-example.json
-/search.messages: 
-  get: 
+/search.messages:
+  get:
     description: Searches for messages matching a query.
-    queryParameters: 
-      query: 
+    queryParameters:
+      query:
         description: Search query. May contains booleans, etc.
         required: true
         example: pickleface
-      sort: 
+      sort:
         description: Return matches sorted by either score or timestamp.
         enum: [ timestamp , score ]
         default: score
         example: timestamp
-      sort_dir: 
+      sort_dir:
         description: Change sort direction to ascending (asc) or descending (desc).
         enum: [ desc , asc ]
         default: desc
         example: asc
-      highlight: 
+      highlight:
         description: Pass a value of 1 to enable query highlight markers .
         example: 1
-      count: 
+      count:
         description: Number of items to return per page.
         type: number
         default: 100
         example: 100
-      page: 
+      page:
         description: Page number of results to return.
         type: number
         default: 1
         example: 2
-    responses: 
-      200: 
-        body: 
-          application/json: 
+    responses:
+      200:
+        body:
+          application/json:
             schema: searchMessages
             example: !include examples/searchMessages-example.json
-/stars.list: 
-  get: 
+/stars.list:
+  get:
     description: Lists stars for a user.
-    queryParameters: 
-      user: 
+    queryParameters:
+      user:
         description: Show stars by this user. Defaults to the authed user.
         example: U1234567890
-      count: 
+      count:
         description: Number of items to return per page.
         type: number
         default: 100
         example: 100
-      page: 
+      page:
         description: Page number of results to return.
         type: number
         default: 1
         example: 2
-    responses: 
-      200: 
-        body: 
-          application/json: 
+    responses:
+      200:
+        body:
+          application/json:
             schema: starList
             example: !include examples/starList-example.json
-/users.list: 
-  get: 
+/users.list:
+  get:
     description: Lists all users in a Slack team.
-    responses: 
-      200: 
-        body: 
-          application/json: 
+    responses:
+      200:
+        body:
+          application/json:
             schema: usersList
             example: !include examples/usersList-example.json
-documentation: 
+documentation:
   - title: Headline
     content: !include docs/headline.md

@@ -1,44 +1,10 @@
 {
-	"ok": true,
-	"files": [{
-		"id": "F03FLKV3V",
-		"created": 1422378526,
-		"timestamp": 1422378526,
-		"name": "test4343543.apk",
-		"title": "Slack for Android Upload",
-		"mimetype": "application\/vnd.android.package-archive",
-		"filetype": "apk",
-		"pretty_type": "APK",
-		"user": "U03B17X4L",
-		"editable": false,
-		"size": 836783,
-		"mode": "hosted",
-		"is_external": false,
-		"external_type": "",
-		"is_public": false,
-		"public_url_shared": false,
-		"url": "https:\/\/slack-files.com\/files-pub\/T02H09TMJ-F03FLKV3V-1bd53ebac2\/test4343543.apk",
-		"url_download": "https:\/\/slack-files.com\/files-pub\/T02H09TMJ-F03FLKV3V-1bd53ebac2\/download\/test4343543.apk",
-		"url_private": "https:\/\/files.slack.com\/files-pri\/T02H09TMJ-F03FLKV3V\/test4343543.apk",
-		"url_private_download": "https:\/\/files.slack.com\/files-pri\/T02H09TMJ-F03FLKV3V\/download\/test4343543.apk",
-		"permalink": "https:\/\/onpositive.slack.com\/files\/denis\/F03FLKV3V\/test4343543.apk",
-		"permalink_public": "https:\/\/slack-files.com\/T02H09TMJ-F03FLKV3V-1bd53ebac2",
-		"channels": [],
-		"groups": [],
-		"ims": ["D03B8D45S"],
-		"comments_count": 1,
-		"initial_comment": {
-			"id": "Fc03FLKV4X",
-			"created": 1422378528,
-			"timestamp": 1422378528,
-			"user": "U03B17X4L",
-			"comment": "\u0432\u0438\u0434\u0435\u043e \u0442\u0435\u0441\u0442"
-		}
-	}],
-	"paging": {
-		"count": 100,
-		"total": 1,
-		"page": 1,
-		"pages": 1
-	}
+  "ok" : true ,
+  "files" : "" ,
+  "paging" : {
+    "count" : 100 ,
+    "total" : 295 ,
+    "page" : 1 ,
+    "pages" : 3
+  }
 }

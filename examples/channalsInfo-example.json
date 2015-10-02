@@ -1,55 +1,18 @@
 {
   "ok" : true ,
   "channel" : {
-    "id" : "C02H09TMU" ,
-    "name" : "general" ,
-    "is_channel" : true ,
-    "created" : 1408969947 ,
-    "creator" : "U02H09TML" ,
+    "id" : "C024BE91L" ,
+    "name" : "fun" ,
+    "created" : "1360782804" ,
+    "creator" : "U024BE7LH" ,
     "is_archived" : false ,
-    "is_general" : true ,
+    "is_general" : false ,
     "is_member" : true ,
-    "last_read" : "1423161592.000002" ,
-    "latest" : {
-      "type" : "message" ,
-      "user" : "U03B17X4L" ,
-      "text" : "<http://prntscr.com/61g9rk>" ,
-      "attachments" : [
-        {
-          "service_name" : "Lightshot" ,
-          "title" : "Screenshot" ,
-          "title_link" : "http://prntscr.com/61g9rk" ,
-          "text" : "Captured with Lightshot" ,
-          "fallback" : "Lightshot: Screenshot" ,
-          "image_url" : "http://i.imgur.com/w84BDwK.png" ,
-          "from_url" : "http://prntscr.com/61g9rk" ,
-          "image_width" : 282 ,
-          "image_height" : 250 ,
-          "image_bytes" : 548344 ,
-          "id" : 1
-        }
-      ] ,
-      "ts" : "1423161592.000002"
-    } ,
-    "unread_count" : 0 ,
-    "unread_count_display" : 0 ,
-    "members" : [
-      "U02H09TML" ,
-      "U03B17X4L" ,
-      "U03B1LNDL" ,
-      "U03B4UVJN" ,
-      "U03B8D45L" ,
-      "U03BLFZ23"
-    ] ,
-    "topic" : {
-      "value" : "This is the new notebook topic!" ,
-      "creator" : "U02H09TML" ,
-      "last_set" : 1409159620
-    } ,
-    "purpose" : {
-      "value" : "This is the new notebook purpose!" ,
-      "creator" : "U02H09TML" ,
-      "last_set" : 1409159619
-    }
+    "members" : "" ,
+    "topic" : "" ,
+    "purpose" : "" ,
+    "last_read" : "1401383885.000061" ,
+    "latest" : "" ,
+    "unread_count" : 0
   }
 }

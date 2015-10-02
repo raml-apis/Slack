@@ -19,12 +19,8 @@
           "type" : "string" ,
           "required" : false
         } ,
-        "is_channel" : {
-          "type" : "boolean" ,
-          "required" : false
-        } ,
         "created" : {
-          "type" : "number" ,
+          "type" : "string" ,
           "required" : false
         } ,
         "creator" : {
@@ -35,11 +31,11 @@
           "type" : "boolean" ,
           "required" : false
         } ,
-        "is_general" : {
+        "is_member" : {
           "type" : "boolean" ,
           "required" : false
         } ,
-        "is_member" : {
+        "is_general" : {
           "type" : "boolean" ,
           "required" : false
         } ,
@@ -48,47 +44,16 @@
           "required" : false
         } ,
         "latest" : {
-          "type" : "object" ,
-          "required" : false ,
-          "properties" : {
-            "user" : {
-              "type" : "string" ,
-              "required" : false
-            } ,
-            "type" : {
-              "type" : "string" ,
-              "required" : false
-            } ,
-            "subtype" : {
-              "type" : "string" ,
-              "required" : false
-            } ,
-            "text" : {
-              "type" : "string" ,
-              "required" : false
-            } ,
-            "ts" : {
-              "type" : "string" ,
-              "required" : false
-            }
-          }
+          "type" : "string" ,
+          "required" : false
         } ,
         "unread_count" : {
           "type" : "number" ,
           "required" : false
         } ,
-        "unread_count_display" : {
-          "type" : "number" ,
-          "required" : false
-        } ,
         "members" : {
-          "type" : "array" ,
-          "required" : false ,
-          "items" : [
-            {
-              "type" : "string"
-            }
-          ]
+          "type" : "string" ,
+          "required" : false
         } ,
         "topic" : {
           "type" : "object" ,
@@ -103,7 +68,7 @@
               "required" : false
             } ,
             "last_set" : {
-              "type" : "number" ,
+              "type" : "string" ,
               "required" : false
             }
           }
@@ -121,7 +86,7 @@
               "required" : false
             } ,
             "last_set" : {
-              "type" : "number" ,
+              "type" : "string" ,
               "required" : false
             }
           }

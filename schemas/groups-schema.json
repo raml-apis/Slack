@@ -22,12 +22,8 @@
               "type" : "string" ,
               "required" : false
             } ,
-            "is_group" : {
-              "type" : "boolean" ,
-              "required" : false
-            } ,
             "created" : {
-              "type" : "number" ,
+              "type" : "string" ,
               "required" : false
             } ,
             "creator" : {
@@ -60,7 +56,7 @@
                   "required" : false
                 } ,
                 "last_set" : {
-                  "type" : "number" ,
+                  "type" : "string" ,
                   "required" : false
                 }
               }
@@ -78,7 +74,7 @@
                   "required" : false
                 } ,
                 "last_set" : {
-                  "type" : "number" ,
+                  "type" : "string" ,
                   "required" : false
                 }
               }
