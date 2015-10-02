@@ -8,8 +8,154 @@
       "required" : false
     } ,
     "files" : {
-      "type" : "string" ,
-      "required" : false
+      "type" : "array" ,
+      "required" : false ,
+      "items" : [
+        {
+          "type" : "object" ,
+          "properties" : {
+            "id" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "created" : {
+              "type" : "number" ,
+              "required" : false
+            } ,
+            "timestamp" : {
+              "type" : "number" ,
+              "required" : false
+            } ,
+            "name" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "title" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "mimetype" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "filetype" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "pretty_type" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "user" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "editable" : {
+              "type" : "boolean" ,
+              "required" : false
+            } ,
+            "size" : {
+              "type" : "number" ,
+              "required" : false
+            } ,
+            "mode" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "is_external" : {
+              "type" : "boolean" ,
+              "required" : false
+            } ,
+            "external_type" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "is_public" : {
+              "type" : "boolean" ,
+              "required" : false
+            } ,
+            "public_url_shared" : {
+              "type" : "boolean" ,
+              "required" : false
+            } ,
+            "url" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "url_download" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "url_private" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "url_private_download" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "permalink" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "permalink_public" : {
+              "type" : "string" ,
+              "required" : false
+            } ,
+            "channels" : {
+              "type" : "array" ,
+              "required" : false ,
+              "items" : [
+              ]
+            } ,
+            "groups" : {
+              "type" : "array" ,
+              "required" : false ,
+              "items" : [
+              ]
+            } ,
+            "ims" : {
+              "type" : "array" ,
+              "required" : false ,
+              "items" : [
+                {
+                  "type" : "string"
+                }
+              ]
+            } ,
+            "comments_count" : {
+              "type" : "number" ,
+              "required" : false
+            } ,
+            "initial_comment" : {
+              "type" : "object" ,
+              "required" : false ,
+              "properties" : {
+                "id" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "created" : {
+                  "type" : "number" ,
+                  "required" : false
+                } ,
+                "timestamp" : {
+                  "type" : "number" ,
+                  "required" : false
+                } ,
+                "user" : {
+                  "type" : "string" ,
+                  "required" : false
+                } ,
+                "comment" : {
+                  "type" : "string" ,
+                  "required" : false
+                }
+              }
+            }
+          }
+        }
+      ]
     } ,
     "paging" : {
       "type" : "object" ,

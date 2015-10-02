@@ -23,7 +23,7 @@
               "required" : false
             } ,
             "created" : {
-              "type" : "string" ,
+              "type" : "integer" ,
               "required" : false
             } ,
             "creator" : {
@@ -55,9 +55,16 @@
                   "required" : false
                 } ,
                 "last_set" : {
-                  "type" : "string" ,
+                  "type" : "integer" ,
                   "required" : false
                 }
+              }
+            } ,
+            "members" : {
+              "type" : "array" ,
+              "required" : false,
+              "items" : {
+                "type" : "string"
               }
             } ,
             "purpose" : {
@@ -73,7 +80,7 @@
                   "required" : false
                 } ,
                 "last_set" : {
-                  "type" : "string" ,
+                  "type" : "integer" ,
                   "required" : false
                 }
               }

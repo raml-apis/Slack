@@ -2,23 +2,24 @@
   "ok" : true ,
   "groups" : [
     {
-      "id" : "G024BE91L" ,
-      "name" : "secretplans" ,
-      "created" : "1360782804" ,
-      "creator" : "U024BE7LH" ,
+      "id" : "G037W6UDW" ,
+      "name" : "notebookprivategroup" ,
+      "is_group" : true ,
+      "created" : 1419170958 ,
+      "creator" : "U037UTPHP" ,
       "is_archived" : false ,
       "members" : [
-        "U024BE7LH"
+        "U037UTPHP"
       ] ,
       "topic" : {
-        "value" : "Secret plans on hold" ,
-        "creator" : "U024BE7LV" ,
-        "last_set" : "1369677212"
+        "value" : "Testing, testing and, one more time, testing!" ,
+        "creator" : "U037UTPHP" ,
+        "last_set" : 1419171004
       } ,
       "purpose" : {
-        "value" : "Discuss secret plans that no-one else should know" ,
-        "creator" : "U024BE7LH" ,
-        "last_set" : "1360782804"
+        "value" : "API Notebook testing." ,
+        "creator" : "U037UTPHP" ,
+        "last_set" : 1419171003
       }
     }
   ]

@@ -18,7 +18,10 @@
         "value" : "This channel is for fun" ,
         "creator" : "U024BE7LH" ,
         "last_set" : "1360782804"
-      }
+      },
+      "members" : [
+        "U02HFLBM0"
+      ]
     } 
   ]
 }
