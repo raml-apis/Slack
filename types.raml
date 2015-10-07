@@ -1,4 +1,4 @@
-#%RAML 1.0
+#%RAML 1.0 Library
 title: Slack types
 types:
   Message:
@@ -35,6 +35,18 @@ types:
           is_starred: false
           wibblr: true
       has_more: false
+  Topic:
+    type: object
+    properties:
+      value?: string
+      creator?: string
+      last_set?: integer
+  PurposeItem:
+    type: object
+    properties:
+      value?: string
+      creator?: string
+      last_set?: string
   ChannelItem:
     type: object
     properties:
@@ -45,19 +57,9 @@ types:
       is_archived?: boolean
       is_member?: boolean
       num_members?: number
-      topic?:
-        type: object
-        properties:
-          value?: string
-          creator?: string
-          last_set?: integer
+      topic?: Topic
       members?: string[]
-      purpose?:
-        type: object
-        properties:
-          value?: string
-          creator?: string
-          last_set?: string
+      purpose?: PurposeItem
     example:
       id: "C024BE91L"
       name: "fun"
@@ -95,6 +97,20 @@ types:
           value: "This channel is for fun"
           creator: "U024BE7LH"
           last_set: "1360782804"
+  Attachment:
+    type: object
+    properties:
+      service_name?: string
+      title?: string
+      title_link?: string
+      text?: string
+      fallback?: string
+      image_url?: string
+      from_url?: string
+      image_width?: number
+      image_height?: number
+      image_bytes?: number
+      id?: number
   Channel:
     type: object
     properties:
@@ -115,21 +131,12 @@ types:
           subtype?: string
           text?: string
           ts?: string
+          attachments?: Attachment[]
       unread_count?: number
       unread_count_display?: number
       members?: string[]
-      topic?:
-        type: object
-        properties:
-          value?: string
-          creator?: string
-          last_set?: integer
-      purpose?:
-        type: object
-        properties:
-          value?: string
-          creator?: string
-          last_set?: string
+      topic?: Topic
+      purpose?: PurposeItem
     example:
       id: "C024BE91L"
       name: "fun"
@@ -138,7 +145,6 @@ types:
       is_archived: false
       is_channel: true
       is_member: false
-      is_archived: true
       is_general: false
       last_read: "1401383885.000061"
       topic:
@@ -157,21 +163,20 @@ types:
     example:
       ok: true
       channel:
-        id?: "C024BE91L"
-        name?: "fun"
-        created?: "1360782804"
-        creator?: "U024BE7LH"
+        id: "C024BE91L"
+        name: "fun"
+        created: "1360782804"
+        creator: "U024BE7LH"
         is_archived: false
-        is_channel?: true
-        is_member?: false
-        is_archived?: true
-        is_general?: false
-        last_read?: "1401383885.000061"
-        topic?:
+        is_channel: true
+        is_member: false
+        is_general: false
+        last_read: "1401383885.000061"
+        topic:
           value: "Fun times"
           creator: "U024BE7LV"
           last_set: "1369677212"
-        purpose?:
+        purpose:
           value: "This channel is for fun"
           creator: "U024BE7LH"
           last_set: "1360782804"
@@ -293,3 +298,646 @@ types:
         tatal: 420
         page: 4
         pages: 429
+  Group:
+    type: object
+    properties:
+      id?: string
+      name?: string
+      is_group?: boolean
+      created?: number
+      creator?: string
+      is_archeved?: boolean
+      members?: string[]
+      topic?: Topic
+      purpose?: PurposeItem
+    example:
+      id : "G037W6UDW"
+      name : "notebookprivategroup"
+      is_group : true
+      created : 1419170958
+      creator : "U037UTPHP"
+      is_archived : false
+      members : ["U037UTPHP"]
+      topic" :
+        value : "Testing, testing and, one more time, testing!"
+        creator : "U037UTPHP"
+        last_set : 1419171004
+      purpose :
+        value : "API Notebook testing."
+        creator : "U037UTPHP"
+        last_set : 1419171003
+  Groups:
+    type: object
+    properties:
+      ok?: boolean
+      groups?: Group[]
+    example:
+      ok: true
+      groups:
+      - id : "G037W6UDW"
+        name : "notebookprivategroup"
+        is_group : true
+        created : 1419170958
+        creator : "U037UTPHP"
+        is_archived : false
+        members : ["U037UTPHP"]
+        topic" :
+          value : "Testing, testing and, one more time, testing!"
+          creator : "U037UTPHP"
+          last_set : 1419171004
+        purpose :
+          value : "API Notebook testing."
+          creator : "U037UTPHP"
+          last_set : 1419171003
+  TopicElement:
+    type: object
+    properties:
+      ok?: boolean
+      topic?: string
+    example:
+      ok: true
+      topic: "Topic"
+  ChatUpdate:
+    type: object
+    properties:
+      ok?: boolean
+      channel?: string
+      ts?: string
+      text?: string
+    example:
+      ok: true
+      channel: "C024BE91L"
+      ts : "1401383885.000061"
+      text : "Updated Text"
+  User:
+    type: object
+    properties:
+      id?: string
+      name?: string
+      deleted?: boolean
+      color?: string
+      profile:
+       type: object
+       properties:
+         first_name?: string
+         last_name?: string
+         real_name?: string
+         email?: string
+         skype?: string
+         phone?: string
+         image_24?: string
+         image_32?: string
+         image_48?: string
+         image_72?: string
+         image_192?: string
+      is_admin?: boolean
+      is_owner?: boolean
+      has_files?: boolean
+    example:
+      id : "U023BECGF"
+      name : "bobby"
+      deleted : false
+      color : "9f69e7"
+      profile :
+        first_name : "Bobby"
+        last_name : "Tables"
+        real_name : "Bobby Tables"
+        email : "bobby@slack.com"
+        skype : "my-skype-name"
+        phone : "+1 (123) 456 7890"
+        image_24 : "https://..."
+        image_32 : "https://..."
+        image_48 : "https://..."
+        image_72 : "https://..."
+        image_192 : "https://..."
+      is_admin : true
+      is_owner : true
+      has_files : true
+  UsersList:
+    type: object
+    properties:
+      ok?: boolean
+      members?: User[]
+    example:
+      ok: true
+      members:
+        - id : "U023BECGF"
+          name : "bobby"
+          deleted : false
+          color : "9f69e7"
+          profile :
+            first_name : "Bobby"
+            last_name : "Tables"
+            real_name : "Bobby Tables"
+            email : "bobby@slack.com"
+            skype : "my-skype-name"
+            phone : "+1 (123) 456 7890"
+            image_24 : "https://..."
+            image_32 : "https://..."
+            image_48 : "https://..."
+            image_72 : "https://..."
+            image_192 : "https://..."
+          is_admin : true
+          is_owner : true
+          has_files : true
+  File:
+    type: object
+    properties:
+      id?: string
+      created?: number
+      timestamp?: number
+      name?: string
+      title?: string
+      mimetype?: string
+      filetype?: string
+      pretty_type?: string
+      user?: string
+      editable?: boolean
+      size?: number
+      mode?: string
+      is_external?: boolean
+      external_type?: string
+      is_public?: boolean
+      public_url_shared?: boolean
+      url?: string
+      url_download?: string
+      url_private?: string
+      url_private_download?: string
+      permalink?: string
+      permalink_public?: string
+      channels?: ChannelItem[]
+      groups?: Group[]
+      ims?: ImsItem[]
+      comment_count?: number
+      initial_comment?:
+        type: object
+        properties:
+          id?: string
+          created?: number
+          timestamp?: number
+          user?: string
+          comment?: string
+    example:
+      id: "F03FLKV3V"
+      created: 1422378526
+      timestamp: 1422378526
+      name: "test4343543.apk"
+      title: "Slack for Android Upload"
+      mimetype: "application\/vnd.android.package-archive"
+      filetype: "apk"
+      pretty_type: "APK"
+      user: "U03B17X4L"
+      editable: false
+      size: 836783
+      mode: "hosted"
+      is_external: false
+      external_type: ""
+      is_public: false
+      public_url_shared: false
+      url: "https:\/\/slack-files.com\/files-pub\/T02H09TMJ-F03FLKV3V-1bd53ebac2\/test4343543.apk"
+      url_download: "https:\/\/slack-files.com\/files-pub\/T02H09TMJ-F03FLKV3V-1bd53ebac2\/download\/test4343543.apk"
+      url_private: "https:\/\/files.slack.com\/files-pri\/T02H09TMJ-F03FLKV3V\/test4343543.apk"
+      url_private_download: "https:\/\/files.slack.com\/files-pri\/T02H09TMJ-F03FLKV3V\/download\/test4343543.apk"
+      permalink: "https:\/\/onpositive.slack.com\/files\/denis\/F03FLKV3V\/test4343543.apk"
+      permalink_public: "https:\/\/slack-files.com\/T02H09TMJ-F03FLKV3V-1bd53ebac2"
+      channels: []
+      groups: []
+      comment_count: 1
+      initial_comment:
+        id: "Fc03FLKV4X"
+        created: 1422378528
+        timestamp: 1422378528
+        user: "U03B17X4L"
+        comment: "\u0432\u0438\u0434\u0435\u043e \u0442\u0435\u0441\u0442"
+  Files:
+    type: object
+    properties:
+      ok?: boolean
+      files?: File[]
+      paging?:
+        type: object
+        properties:
+          count?: number
+          total?: number
+          page?: number
+          pages?: number
+    example:
+      ok: true
+      files:
+        - id: "F03FLKV3V"
+          created: 1422378526
+          timestamp: 1422378526
+          name: "test4343543.apk"
+          title: "Slack for Android Upload"
+          mimetype: "application\/vnd.android.package-archive"
+          filetype: "apk"
+          pretty_type: "APK"
+          user: "U03B17X4L"
+          editable: false
+          size: 836783
+          mode: "hosted"
+          is_external: false
+          external_type: ""
+          is_public: false
+          public_url_shared: false
+          url: "https:\/\/slack-files.com\/files-pub\/T02H09TMJ-F03FLKV3V-1bd53ebac2\/test4343543.apk"
+          url_download: "https:\/\/slack-files.com\/files-pub\/T02H09TMJ-F03FLKV3V-1bd53ebac2\/download\/test4343543.apk"
+          url_private: "https:\/\/files.slack.com\/files-pri\/T02H09TMJ-F03FLKV3V\/test4343543.apk"
+          url_private_download: "https:\/\/files.slack.com\/files-pri\/T02H09TMJ-F03FLKV3V\/download\/test4343543.apk"
+          permalink: "https:\/\/onpositive.slack.com\/files\/denis\/F03FLKV3V\/test4343543.apk"
+          permalink_public: "https:\/\/slack-files.com\/T02H09TMJ-F03FLKV3V-1bd53ebac2"
+          channels: []
+          groups: []
+          ims: ["D03B8D45S"]
+          comments_count: 1
+          initial_comment:
+            id: "Fc03FLKV4X"
+            created: 1422378528
+            timestamp: 1422378528
+            user: "U03B17X4L"
+            comment: "\u0432\u0438\u0434\u0435\u043e \u0442\u0435\u0441\u0442"
+      paging:
+        count: 14
+        total: 14
+        page: 2
+        pages: 14
+  SearchAll:
+    type: object
+    properties:
+      ok?: boolean
+      channel?: Channel
+    example:
+      ok: true
+      channel:
+        id: "C024BE91L"
+        name: "fun"
+        created: "1360782804"
+        creator: "U024BE7LH"
+        is_archived: false
+        is_channel: true
+        is_member: false
+        is_general: false
+        last_read: "1401383885.000061"
+        topic:
+          value: "Fun times"
+          creator: "U024BE7LV"
+          last_set: "1369677212"
+        purpose:
+          value: "This channel is for fun"
+          creator: "U024BE7LH"
+          last_set: "1360782804"
+  Match:
+    type: object
+    properties:
+      id?: string
+      created?: number
+      timestamp?: number
+      name?: string
+      title?: string
+      mimetype?: string
+      filetype?: string
+      pretty_type?: string
+      user?: string
+      editable?: boolean
+      size?: number
+      mode?: string
+      is_external?: boolean
+      is_public?: boolean
+      public_url_shared?: boolean
+      url?: string
+      url_download?: string
+      url_private?: string
+      url_private_download?: string
+      permalink?: string
+      permalink_public?: string
+      edit_link?: string
+      preview?: string
+      preview_highlight?: string
+      lines?: number
+      lines_more?: number
+      channels?: Channel[]
+      groups?: Group[]
+      ims?: string[]
+      comments_count?: number
+      initial_comment?:
+        type: object
+        properties:
+          id?: string
+          created?: number
+          timestamp?: number
+          user?: string
+          comment?: string
+    example:
+      id: "F0426TAD5"
+      created: 1426587938
+      timestamp: 1426587938
+      name: "File.txt"
+      title: "File.txt"
+      mimetype: "text\/plain"
+      filetype: "text"
+      pretty_type: "Plain Text"
+      user: "U037UTPHP"
+      editable: true
+      size: 1513
+      mode: "snippet"
+      is_external: false
+      external_type: ""
+      is_public: false
+      public_url_shared: false
+      url: "https:\/\/slack-files.com\/files-pub\/T037UTPHM-F0426TAD5-1fb4ecaf2c\/file.txt"
+      url_download: "https:\/\/slack-files.com\/files-pub\/T037UTPHM-F0426TAD5-1fb4ecaf2c\/download\/file.txt"
+      url_private: "https:\/\/files.slack.com\/files-pri\/T037UTPHM-F0426TAD5\/file.txt"
+      url_private_download: "https:\/\/files.slack.com\/files-pri\/T037UTPHM-F0426TAD5\/download\/file.txt"
+      permalink: "https:\/\/ramltest.slack.com\/files\/ramltest\/F0426TAD5\/file.txt"
+      permalink_public: "https:\/\/slack-files.com\/T037UTPHM-F0426TAD5-1fb4ecaf2c"
+      edit_link: "https:\/\/ramltest.slack.com\/files\/ramltest\/F0426TAD5\/file.txt\/edit"
+      preview: ""
+      lines: 39
+      lines_more: 29
+      channels: []
+      groups: []
+      ims: ["D037UTPHR"]
+      comments_count: 1
+      initial_comment:
+        id: "Fc0429AKDS"
+        created: 1426587938
+        timestamp: 1426587938
+        user: "U037UTPHP"
+        comment: "File.txt"
+  SearchFiles:
+    type: object
+    properties:
+      ok?: boolean
+      query?: string
+      files?:
+        type: object
+        properties:
+          total?: number
+          pagination?:
+            type: object
+            properties:
+              total_count?: number
+              page?: number
+              per_page?: number
+              page_count?: number
+              first?: number
+              last?: number
+          paging?:
+            type: object
+            properties:
+              count?: number
+              total?: number
+              page?: number
+              pages?: number
+          matches: Match[]
+    example:
+      files:
+        total: 1
+        pagination:
+          total_count: 1
+          page: 1
+          per_page: 20
+          page_count: 1
+          first: 1
+          last: 1
+        paging:
+          count: 20
+          total: 1
+          page: 1
+          pages: 1
+        matches:
+          - id: "F0426TAD5"
+            created: 1426587938
+            timestamp: 1426587938
+            name: "File.txt"
+            title: "File.txt"
+            mimetype: "text\/plain"
+            filetype: "text"
+            pretty_type: "Plain Text"
+            user: "U037UTPHP"
+            editable: true
+            size: 1513
+            mode: "snippet"
+            is_external: false
+            external_type: ""
+            is_public: false
+            public_url_shared: false
+            url: "https:\/\/slack-files.com\/files-pub\/T037UTPHM-F0426TAD5-1fb4ecaf2c\/file.txt"
+            url_download: "https:\/\/slack-files.com\/files-pub\/T037UTPHM-F0426TAD5-1fb4ecaf2c\/download\/file.txt"
+            url_private: "https:\/\/files.slack.com\/files-pri\/T037UTPHM-F0426TAD5\/file.txt"
+            url_private_download: "https:\/\/files.slack.com\/files-pri\/T037UTPHM-F0426TAD5\/download\/file.txt"
+            permalink: "https:\/\/ramltest.slack.com\/files\/ramltest\/F0426TAD5\/file.txt"
+            permalink_public: "https:\/\/slack-files.com\/T037UTPHM-F0426TAD5-1fb4ecaf2c"
+            edit_link: "https:\/\/ramltest.slack.com\/files\/ramltest\/F0426TAD5\/file.txt\/edit"
+            preview: ""
+            lines: 39
+            lines_more: 29
+            channels: []
+            groups: []
+            ims: ["D037UTPHR"]
+            comments_count: 1
+            initial_comment:
+              id: "Fc0429AKDS"
+              created: 1426587938
+              timestamp: 1426587938
+              user: "U037UTPHP"
+              comment: "File.txt"
+  SearchMatch:
+    type: object
+    properties:
+      type?: string
+      user?: string
+      username?: string
+      ts?: string
+      text?: string
+      channel?:
+        type: object
+        properties:
+          id?: string
+          name?: string
+      prmalink?: string
+      previous?:
+        type: object
+        properties:
+          user?: string
+          username?: string
+          ts?: string
+          type?: string
+          text?: string
+      previous_2?:
+        type: object
+        properties:
+          user?: string
+          username?: string
+          ts?: string
+          type?: string
+          text?: string
+      next?:
+        type: object
+        properties:
+          user?: string
+          username?: string
+          ts?: string
+          type?: string
+          text?: string
+      next_2?:
+        type: object
+        properties:
+          user?: string
+          username?: string
+          ts?: string
+          type?: string
+          text?: string
+    example:
+      type: "im"
+      user: "USLACKBOT"
+      username: "slackbot"
+      ts: "1426588313.000012"
+      text: "Hi ramltest. I can help you with many different parts of Slack. For example, things like <slack-action:\/\/BSLACKBOT\/help\/files|files>, <slack-action:\/\/BSLACKBOT\/help\/channels|channels>, <slack-action:\/\/BSLACKBOT\/help\/search|search>, <slack-action:\/\/BSLACKBOT\/help\/starring|starring>, <slack-action:\/\/BSLACKBOT\/help\/mobile|mobile>, or <slack-action:\/\/BSLACKBOT\/help\/keyboard|keyboard shortcuts>. You can click on those terms or type \"\/help\" followed by any term you want help with (e.g., \"\/help files\" or \"\/help search\"). Or, if you just want to tell us what you think about Slack, you can type \"\/feedback\" followed by whatever you'd like to say to the team at Slack."
+      channel:
+        id: "D037UTPHR"
+        name: "USLACKBOT"
+      permalink: "https:\/\/ramltest.slack.com\/archives\/D037UTPHR\/p1426588313000012"
+      previous:
+        user: "USLACKBOT"
+        username: "slackbot"
+        ts: "1426588302.000011"
+        type: "message"
+        text: "Sorry, I don't know how to help you with 'me'. Please type `\/help` for details of how I can help you with Slack."
+      previous_2:
+        user: "U037UTPHP"
+        username: "ramltest"
+        ts: "1426588301.000010"
+        type: "message"
+        text: "help me"
+      next:
+        user: "U037UTPHP"
+        username: "ramltest"
+        ts: "1426588350.000013"
+        type: "message"
+        text: "ee"
+      next_2:
+        user: "USLACKBOT"
+        username: "slackbot"
+        ts: "1426588351.000014"
+        type: "message"
+        text: "Hmm. I didn\u2019t get that, but we can keep going."
+  SearchMessages:
+    type: object
+    properties:
+      ok?: boolean
+      query?: string
+      messages:
+        type: object
+        properties:
+          total?: number
+          pagination?:
+            type: object
+            properties:
+              total_count?: number
+              page?: number
+              per_page?: number
+              page_count?: number
+              first?: number
+              last?: number
+          paging?:
+            type: object
+            properties:
+              count?: number
+              total?: number
+              page?: number
+              pages?: number
+          matches?: SearchMatch[]
+    example:
+      ok: true
+      query: "file"
+      messages:
+        total: 2
+        pagination:
+          total_count: 2
+          page: 1
+          per_page: 20
+          page_count: 1
+          first: 1
+          last: 2
+        paging:
+          count: 20
+          total: 2
+          page: 1
+          pages: 1
+        matches:
+          - type: "im"
+            user: "USLACKBOT"
+            username: "slackbot"
+            ts: "1426588313.000012"
+            text: "Hi ramltest. I can help you with many different parts of Slack. For example, things like <slack-action:\/\/BSLACKBOT\/help\/files|files>, <slack-action:\/\/BSLACKBOT\/help\/channels|channels>, <slack-action:\/\/BSLACKBOT\/help\/search|search>, <slack-action:\/\/BSLACKBOT\/help\/starring|starring>, <slack-action:\/\/BSLACKBOT\/help\/mobile|mobile>, or <slack-action:\/\/BSLACKBOT\/help\/keyboard|keyboard shortcuts>. You can click on those terms or type \"\/help\" followed by any term you want help with (e.g., \"\/help files\" or \"\/help search\"). Or, if you just want to tell us what you think about Slack, you can type \"\/feedback\" followed by whatever you'd like to say to the team at Slack."
+            channel:
+              id: "D037UTPHR"
+              name: "USLACKBOT"
+            permalink: "https:\/\/ramltest.slack.com\/archives\/D037UTPHR\/p1426588313000012"
+            previous:
+              user: "USLACKBOT"
+              username: "slackbot"
+              ts: "1426588302.000011"
+              type: "message"
+              text: "Sorry, I don't know how to help you with 'me'. Please type `\/help` for details of how I can help you with Slack."
+            previous_2:
+              user: "U037UTPHP"
+              username: "ramltest"
+              ts: "1426588301.000010"
+              type: "message"
+              text: "help me"
+            next:
+              user: "U037UTPHP"
+              username: "ramltest"
+              ts: "1426588350.000013"
+              type: "message"
+              text: "ee"
+            next_2:
+              user: "USLACKBOT"
+              username: "slackbot"
+              ts: "1426588351.000014"
+              type: "message"
+              text: "Hmm. I didn\u2019t get that, but we can keep going."
+  ChannalsInfo:
+    type: object
+    properties:
+      ok?: boolean
+      channel?: Channel
+    example:
+      ok: true
+      channel:
+        id: "C024BE91L"
+        name: "fun"
+        created: "1360782804"
+        creator: "U024BE7LH"
+        is_archived: false
+        is_channel: true
+        is_member: false
+        is_general: false
+        last_read: "1401383885.000061"
+        latest:
+          type: "message"
+          user: "U03B17X4L"
+          text: "<http://prntscr.com/61g9rk>"
+          attachments:
+            - service_name: "Lightshot"
+              title: "Screenshot"
+              title_link: "http://prntscr.com/61g9rk"
+              text: "Captured with Lightshot"
+              fallback: "Lightshot: Screenshot"
+              image_url: "http://i.imgur.com/w84BDwK.png"
+              from_url : "http://prntscr.com/61g9rk"
+              image_width : 282
+              image_height : 250
+              image_bytes : 548344
+              id : 1
+          ts : "1423161592.000002"
+        topic:
+          value: "Fun times"
+          creator: "U024BE7LV"
+          last_set: "1369677212"
+        purpose:
+          value: "This channel is for fun"
+          creator: "U024BE7LH"
+          last_set: "1360782804"
