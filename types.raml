@@ -1,5 +1,4 @@
 #%RAML 1.0 Library
-title: Slack types
 types:
   Message:
     type: object
@@ -602,6 +601,7 @@ types:
       editable?: boolean
       size?: number
       mode?: string
+      external_type: string
       is_external?: boolean
       is_public?: boolean
       public_url_shared?: boolean
@@ -642,7 +642,7 @@ types:
       size: 1513
       mode: "snippet"
       is_external: false
-      external_type: ""
+      external_type: "a"
       is_public: false
       public_url_shared: false
       url: "https:\/\/slack-files.com\/files-pub\/T037UTPHM-F0426TAD5-1fb4ecaf2c\/file.txt"
@@ -720,7 +720,7 @@ types:
             size: 1513
             mode: "snippet"
             is_external: false
-            external_type: ""
+            external_type: "type"
             is_public: false
             public_url_shared: false
             url: "https:\/\/slack-files.com\/files-pub\/T037UTPHM-F0426TAD5-1fb4ecaf2c\/file.txt"
