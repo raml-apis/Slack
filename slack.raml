@@ -2,13 +2,13 @@
 title: Slack
 baseUri: https://slack.com/api
 securitySchemes:
-  - oauth_2_0: !include securitySchemes/oauth_2_0.raml
+  oauth_2_0: !include securitySchemes/oauth_2_0.raml
 uses:
-  - types: !include types.raml
+  types: types.raml
 resourceTypes:
-  - setPurposeType: !include resourceTypes/setPurposeType.raml
-  - historyType: !include resourceTypes/historyType.raml
-  - markType: !include resourceTypes/markType.raml
+  setPurposeType: !include resourceTypes/setPurposeType.raml
+  historyType: !include resourceTypes/historyType.raml
+  markType: !include resourceTypes/markType.raml
 securedBy: [ oauth_2_0 ]
 /channels.history:
   type: { historyType: { resourceName: Channel }}
@@ -75,8 +75,8 @@ securedBy: [ oauth_2_0 ]
     queryParameters:
       exclude_archived:
         description: "Don't return archived channels."
-        default: 0
-        example: 1
+        default: "0"
+        example: "1"
     responses:
       200:
         body:
@@ -118,7 +118,7 @@ securedBy: [ oauth_2_0 ]
       ts:
         description: Timestamp of the most recently seen message.
         required: true
-        example: 1234567890.123456
+        example: "1234567890.123456"
     responses:
       200:
         body:
@@ -144,10 +144,10 @@ securedBy: [ oauth_2_0 ]
         example: full
       link_names:
         description: Find and link channel names and usernames.
-        example: 1
+        example: "1"
       unfurl_links:
         description: Pass 1 to enable unfurling of primarily text-based content.
-        example: 1
+        example: "1"
       icon_url:
         description: URL to an image to use as the icon for this message
         example: http://lorempixel.com/48/48
@@ -176,7 +176,7 @@ securedBy: [ oauth_2_0 ]
       ts:
         description: Timestamp of the most recently seen message.
         required: true
-        example: 1234567890.123456
+        example: "1234567890.123456"
     responses:
       200:
         body:
@@ -226,12 +226,12 @@ securedBy: [ oauth_2_0 ]
         example: U1234567890
       ts_from:
         description: Filter files created after this timestamp (inclusive).
-        default: 0
-        example: 123456789
+        default: "0"
+        example: "123456789"
       ts_to:
         description: Filter files created before this timestamp (inclusive).
         default: now
-        example: 123456789
+        example: "123456789"
       types:
         description: You can pass multiple values in the types argument, like types=posts,snippets.The default value is all, which does not filter the list.
         enum:
@@ -285,8 +285,8 @@ securedBy: [ oauth_2_0 ]
     queryParameters:
       exclude_archived:
         description: "Don't return archived channels."
-        default: 0
-        example: 1
+        default: "0"
+        example: "1"
     responses:
       200:
         body:
@@ -341,7 +341,7 @@ securedBy: [ oauth_2_0 ]
       ts:
         description: Timestamp of the most recently seen message.
         required: true
-        example: 1234567890.123456
+        example: "1234567890.123456"
     responses:
       200:
         body:
@@ -367,7 +367,7 @@ securedBy: [ oauth_2_0 ]
         example: asc
       highlight:
         description: Pass a value of 1 to enable query highlight markers .
-        example: 1
+        example: "1"
       count:
         description: Number of items to return per page.
         type: number
@@ -403,7 +403,7 @@ securedBy: [ oauth_2_0 ]
         example: asc
       highlight:
         description: Pass a value of 1 to enable query highlight markers .
-        example: 1
+        example: "1"
       count:
         description: Number of items to return per page.
         type: number
@@ -439,7 +439,7 @@ securedBy: [ oauth_2_0 ]
         example: asc
       highlight:
         description: Pass a value of 1 to enable query highlight markers .
-        example: 1
+        example: "1"
       count:
         description: Number of items to return per page.
         type: number
